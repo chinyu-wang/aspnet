@@ -1,0 +1,91 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    王老師的練習專案
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">登入</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        歡迎 <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="登出" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="首頁"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="關於"/>
+                        <asp:MenuItem Text="資料庫功能" Value="資料庫功能">
+                            <asp:MenuItem NavigateUrl="~/select.aspx" Text="select" Value="select">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/insert.aspx" Text="insert" Value="insert">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/delete.aspx" Text="delete" Value="delete">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/update.aspx" Text="update" Value="update">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/sql-select.aspx" Text="SQL select 練習" 
+                                Value="SQL select 練習"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="更多功能" Value="更多功能">
+                            <asp:MenuItem NavigateUrl="~/new1.aspx" Text="匯率轉換v1" Value="匯率轉換v1"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/new2.aspx" Text="匯率轉換v2" Value="匯率轉換v2">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/new3.aspx" Text="匯率轉換v3 OpenData即時匯率" 
+                                Value="匯率轉換v3 OpenData即時匯率"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/array1.aspx" Text="業績計算第1題" Value="業績計算第1題">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/array2.aspx" Text="業績計算第2題" Value="業績計算第2題">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/id-check.aspx" Text="身分證檢查" Value="身分證檢查">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/invoice.aspx" Text="發票兌獎" Value="發票兌獎">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/if-condition.aspx" Text="if condition 練習" 
+                                Value="if condition 練習"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/loop.aspx" Text="loop" Value="loop"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/city.aspx" Text="里程票價表" Value="里程票價表">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/db.aspx" Text="台中景點資料庫v1" Value="台中景點資料庫">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/db1.aspx" Text="台中景點資料庫v2" Value="台中景點資料庫v2">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/db2.aspx" Text="台中景點資料庫v3" Value="台中景點資料庫v3">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/map.aspx" Text="MAP" Value="MAP"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>
